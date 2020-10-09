@@ -7,4 +7,4 @@ async function deleteTable() {
     console.log(res);
   }
 
-  deleteTable()
+deleteTable();

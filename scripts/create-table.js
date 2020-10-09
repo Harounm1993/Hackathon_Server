@@ -6,4 +6,4 @@ async function createTable() {
   console.log(res);
 }
 
-createTable()
+createTable();

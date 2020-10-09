@@ -23,4 +23,4 @@ const data = [
     }
   ];
   
-  populateTable();
+module.exports = { populateTable }

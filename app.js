@@ -3,6 +3,7 @@ const dotenv = require('dotenv').config()
 const path = require("path");
 const express = require("express");// task 1: 
 const { Pool } = require('pg');
+const populateTable = require('\scripts\populate-table');
 
 //next 5 lines part of task 1
 const app = express();
