@@ -20,4 +20,11 @@ const data = [
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(`${__dirname}/views/index.html`));
+  console.log("get request")
 });
+
+app.listen(port, () => {
+  console.log(`App is listening at http://localhost:${port}`)
+})
+
+module.exports = app;
