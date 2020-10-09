@@ -8,10 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Chris Meah <chris@schoolofcode.co.uk>",
+  "author": "Mahdi Haroun & Michael Swann",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.4.1"
   },
   "repository": {
     "type": "git",

@@ -1,12 +1,16 @@
+// require modules
+const dotenv = require('dotenv').config()
 const path = require("path");
 const express = require("express");
+const { Pool } = require('pg');
+
 const app = express();
 const port = 5000;
 
 app.use(express.static("public"));
 app.use(express.json());
 
-const { Pool } = require('pg');
+
 const pool = new Pool({
     user: 'ttoxpkaldyjnyp',
     host: 'ec2-18-203-7-163.eu-west-1.compute.amazonaws.com',
