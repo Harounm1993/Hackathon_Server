@@ -12,14 +12,14 @@ app.use(express.json());
 
 
 const pool = new Pool({
-    user: 'ttoxpkaldyjnyp',
-    host: 'ec2-18-203-7-163.eu-west-1.compute.amazonaws.com',
-    database: 'd9e2qrf4vj2ns',
-    password: 'b4734dea416f048560bb5e26c6780a4d3197be4605e45f5bf6858897af087005',
-    port: 5432,
-    uri:'postgres://ttoxpkaldyjnyp:b4734dea416f048560bb5e26c6780a4d3197be4605e45f5bf6858897af087005@ec2-18-203-7-163.eu-west-1.compute.amazonaws.com:5432/d9e2qrf4vj2ns', 
-    ssl: {
-        rejectUnauthorized : false }
+  host: process.env.host,
+  username: process.env.user,
+  password: process.env.password,
+  database: process.env.database,
+  port: process.env.port,
+  uri: process.env.uri,
+  ssl: {
+    rejectUnauthorized : false }
   })
   module.exports = {
       query: (text, params, callback) => {
