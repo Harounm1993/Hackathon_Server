@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "createtable": "node create_table.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "populatetable": "node populate-table.js"
   },
   "keywords": [],
   "author": "Mahdi Haroun & Michael Swann",
