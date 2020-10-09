@@ -3,7 +3,7 @@ const dotenv = require('dotenv').config()
 const path = require("path");
 const express = require("express");// task 1: 
 const { Pool } = require('pg');
-const populateTable = require('\scripts\populate-table');
+const { populate } = require('./scripts/populate-table');
 
 //next 5 lines part of task 1
 const app = express();
@@ -59,13 +59,15 @@ app.get("/api/recipes", function (req, res) {
 });
 
 app.post("/api/recipes", function (req, res) {
-  data.push(req.body);
+  let data = (req.body);
+  let result = populate(data);
   res.json({ 
     message: "post request success",
-     payload: req.body
+     payload: data
     });
 
 });
+
 
 //listen : tells server on port 500 for these requests
 app.listen(port, () => {

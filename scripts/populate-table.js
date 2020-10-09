@@ -1,7 +1,7 @@
 // populate table function
 const { query } = require('../app')
 
-const populateTable = async () => {
+const populateTable = async (data) => {
     for (const {  title, ingredients, instructions, image } of data) {
       const res = await query(
         `
@@ -14,13 +14,13 @@ const populateTable = async () => {
     }
   };
 
-const data = [
-    {
-      title: "Beans on Toast",
-      ingredients: ["150g of beans", "150g of butter", "150g of toast"],
-      instructions: `Put the butter in your mouth, wait 2 seconds to allow slight melting. Then follow with the toast. Swish around for 10-15 seconds to allow even coating of butter on the toast. Then add the beans, slowly. Season to taste.`,
-      image: "https://natashaskitchen.com/wp-content/uploads/2019/04/Best-Burger-4-500x375.jpg"
-    }
-  ];
+// const data = [
+//     {
+//       title: "Beans on Toast",
+//       ingredients: ["150g of beans", "150g of butter", "150g of toast"],
+//       instructions: `Put the butter in your mouth, wait 2 seconds to allow slight melting. Then follow with the toast. Swish around for 10-15 seconds to allow even coating of butter on the toast. Then add the beans, slowly. Season to taste.`,
+//       image: "https://natashaskitchen.com/wp-content/uploads/2019/04/Best-Burger-4-500x375.jpg"
+//     }
+//   ];
   
-module.exports = { populateTable }
+module.exports = { populate : populateTable };
