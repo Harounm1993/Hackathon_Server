@@ -11,3 +11,4 @@ async function createTable() {
 }
 
 createTable()
+//ignoring this for now: cant link to script currently

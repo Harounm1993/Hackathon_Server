@@ -1,9 +1,10 @@
 // require modules
 const dotenv = require('dotenv').config()
 const path = require("path");
-const express = require("express");
+const express = require("express");// task 1: 
 const { Pool } = require('pg');
 
+//next 5 lines part of task 1
 const app = express();
 const port = 5000;
 
@@ -20,20 +21,7 @@ const pool = new Pool({
   uri: process.env.uri,
   ssl: {
     rejectUnauthorized : false }
-  })
-
-  async function createTable() {
-
-    let queryText = "CREATE TABLE my_collection (id TEXT PRIMARY KEY, name TEXT, count INTEGER, whatILike TEXT)";
-   
-    let res = await pool.query(queryText);
-  
-    console.log(res);
-  
-  }
-  
-  createTable()
-
+ })
   module.exports = {
       query: (text, params, callback) => {
       return pool.query(text, params, callback)
@@ -52,11 +40,13 @@ const data = [
   }
 ];
 
+//line 44-53 all requred for task 1.
+// get: tells servers what to do with http request 
 app.get("/", function (req, res) {
   res.sendFile(path.join(`${__dirname}/views/index.html`));
   console.log("get request")
 });
-
+//listen : tells server on port 500 for these requests
 app.listen(port, () => {
   console.log(`App is listening at http://localhost:${port}`)
 })
