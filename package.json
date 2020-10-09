@@ -1,7 +1,7 @@
 {
   "name": "workshops_servers",
   "version": "1.0.0",
-  "description": "",
+  "description": "There is some code needed to get the application running. When the server is working, you should see a website at http://localhost:5000",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
@@ -12,5 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SchoolOfCode/hacktathons-servers-mahdi-and-michael.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SchoolOfCode/hacktathons-servers-mahdi-and-michael/issues"
+  },
+  "homepage": "https://github.com/SchoolOfCode/hacktathons-servers-mahdi-and-michael#readme"
 }
