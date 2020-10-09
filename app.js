@@ -10,7 +10,7 @@ const port = 5000;
 app.use(express.static("public"));
 app.use(express.json());
 
-
+// create pool using process env to hide credentials
 const pool = new Pool({
   host: process.env.host,
   username: process.env.user,
