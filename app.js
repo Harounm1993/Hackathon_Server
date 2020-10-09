@@ -13,7 +13,7 @@ app.use(express.json());
 // create pool using process env to hide credentials
 const pool = new Pool({
   host: process.env.host,
-  username: process.env.user,
+  user: process.env.user,
   password: process.env.password,
   database: process.env.database,
   port: process.env.port,
@@ -21,6 +21,19 @@ const pool = new Pool({
   ssl: {
     rejectUnauthorized : false }
   })
+
+  async function createTable() {
+
+    let queryText = "CREATE TABLE my_collection (id TEXT PRIMARY KEY, name TEXT, count INTEGER, whatILike TEXT)";
+   
+    let res = await pool.query(queryText);
+  
+    console.log(res);
+  
+  }
+  
+  createTable()
+
   module.exports = {
       query: (text, params, callback) => {
       return pool.query(text, params, callback)
