@@ -3,7 +3,8 @@ const dotenv = require('dotenv').config()
 const path = require("path");
 const express = require("express");// task 1: 
 const { Pool } = require('pg');
-const { populate } = require('./scripts/populate-table');
+//const populate = require('./scripts/populate-table');
+let data; 
 
 //next 5 lines part of task 1
 const app = express();
@@ -22,26 +23,7 @@ const pool = new Pool({
   uri: process.env.uri,
   ssl: {
     rejectUnauthorized : false }
-})
-  
-// create table function
-
-// async function createTable() {
-
-//   let queryText = "CREATE TABLE my_recipes11 (user_id SERIAL PRIMARY KEY, title TEXT, ingredients TEXT, instructions TEXT, image TEXT)";
-  
-//   let res = await pool.query(queryText);
-
-//   console.log(res);
-
-// }
-
-
-
-
-
-
-//populateTable(data);
+});
 
 
 
@@ -54,18 +36,27 @@ app.get("/", function (req, res) {
 
 
 app.get("/api/recipes", function (req, res) {
+  let data = (req.body);
   res.json({ payload : data });
   console.log("get request")
 });
 
-app.post("/api/recipes", function (req, res) {
-  let data = (req.body);
-  let result = populate(data);
-  res.json({ 
-    message: "post request success",
-     payload: data
-    });
+app.post("/api/recipes", async (req, res) =>  {
 
+  // destructure 
+    const { title, ingredients, instructions, image } = req.body;
+  
+  let result = databaseInteraction(
+      `
+      INSERT INTO my_recipes (title, ingredients, instructions, image)
+        VALUES ($1, $2, $3, $4)
+      `,
+      [title, ingredients, instructions, image] 
+    );
+    console.log(result);
+
+    res.send(res.body)
+  
 });
 
 
@@ -76,3 +67,10 @@ app.listen(port, () => {
 
 module.exports = { app, query: (text, params, callback) => {
   return pool.query(text, params, callback)}, };
+
+  // populate table included in this as exporting creates a loop
+
+async function databaseInteraction(query, values) {
+    const res = await pool.query(query, values)
+    console.log(res);
+};

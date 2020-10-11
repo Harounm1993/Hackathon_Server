@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "createtable": "node create-table.js",
+    "createtable": "node scripts/create-table.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "populatetable": "node populate-table.js",
-    "deletetable" :"node delete-table.js"
+    "populatetable": "node scripts/populate-table.js",
+    "deletetable" :"node scripts/delete-table.js"
   },
   "keywords": [],
   "author": "Mahdi Haroun & Michael Swann",
